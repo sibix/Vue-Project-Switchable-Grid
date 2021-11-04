@@ -18,7 +18,7 @@
         <ul v-if="layout === 'grid'" class="grid">
           <li v-for="content in contents" :key="content.id">
             <div class="image">
-              <img :src="content.imageSrc" />
+              <img :src="content.fields.MainImage[0].url" />
             </div>
           </li>
         </ul>

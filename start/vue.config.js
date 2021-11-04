@@ -1,5 +1,6 @@
 module.exports = {
   devServer: {
-    proxy: 'http://bibekshakya.com/'
+    //proxy: 'http://bibekshakya.com/'
+    compress: true
   }
 }
