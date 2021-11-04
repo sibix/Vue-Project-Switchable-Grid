@@ -27,10 +27,11 @@
           <li v-for="content in contents" :key="content.id">
             <img :src="content.fields.MainImage[0].url" />
             <div class="listContent">
-              <h2>Rs {{ content.fields.Price }}</h2>
               <h2>{{ content.fields.ProductName }}</h2>
-              <p>{{ content.description }}</p>
-              <a class="btn" href="#">Read more</a>
+              <p>{{ content.fields.ProductDescription }}</p>
+              <h2>Rs {{ content.fields.Price }}</h2>
+              <a class="btn" href="#" style="background:green;">Buy Now</a>
+              <a class="btn" href="#" style="margin-left:10px;">Enquire</a>
             </div>
           </li>
         </ul>
@@ -54,7 +55,8 @@ export default {
   //     console.log(this.contents)
   // }
   mounted() {
-    fetch('https://api.airtable.com/v0/appQ5A4sEU3uZstcI/PRODUCTS?fields=ProductName&fields=Price&fields=MainImage&fields=Image1&fields=Image2&api_key=keyUop6Ql5CLltnDI')
+    fetch('https://api.airtable.com/v0/appQ5A4sEU3uZstcI/PRODUCTS?api_key=keyUop6Ql5CLltnDI')
+      // fetch('https://api.airtable.com/v0/appQ5A4sEU3uZstcI/PRODUCTS?fields=ProductName&fields=Price&fields=MainImage&fields=Image1&fields=Image2&api_key=keyUop6Ql5CLltnDI')
       //fetch('http://localhost:8080/demo/vue/switchable-grid/api/products.json')
       .then(res => res.json())
       .then(data => this.contents = data.records)
